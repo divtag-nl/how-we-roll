@@ -5,6 +5,7 @@ Deze site beschrijft hoe bij ons, Divtag, verschillende processen geregeld zijn 
 - Proces
   - [Data en veiligheid](/process/data-and-security)
   - [Definities](/process/definitions)
+  - [Gebruikte technieken](/process/tools)
 - Code
   - [Laravel en PHP](/code-style/laravel-php)
 
