@@ -24,4 +24,4 @@ Dit laatste staat beter bekend als Test Driven Development en is een steeds popu
 
 ## Monitoring (Sentry)
 
-Toch kan het, ondanks bovenstaande maatregelen, gebeuren dat een applicatie een foutmelding geeft. Deze worden middels de monitoring software van Sentry centraal opgeslagen. Onze developers krijgen hier direct een melding van. Zo kan er op zeer efficiëntie wijze worden gezocht naar de oorzaak van de foutmelding.  
+Toch kan het, ondanks bovenstaande maatregelen, gebeuren dat een applicatie een foutmelding geeft. Deze worden middels de monitoring software van [Sentry](https://sentry.io/) centraal opgeslagen. Onze developers krijgen hier direct een melding van. Zo kan er op zeer efficiëntie wijze worden gezocht naar de oorzaak van de foutmelding.  
