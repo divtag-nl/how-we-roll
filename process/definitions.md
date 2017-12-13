@@ -1,3 +1,5 @@
+[← Terug](/)
+
 # Definities
 
 Bij Divtag scrummen we. Bij Scrum horen bepaalde spelregels en rituelen. Op deze pagina staan de richtlijnen beschrijven waar een taak aan moet voldoen voordat hij een bepaalde status kan krijgen.

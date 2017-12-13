@@ -8,4 +8,4 @@ Deze site beschrijft hoe bij ons, Divtag, verschillende processen geregeld zijn 
 - Code
   - [Laravel en PHP](/code-style/laravel-php)
 
-That's how we roll
+That's how we roll.

@@ -1,3 +1,5 @@
+[← Terug](/)
+
 # Data en veiligheid
 
 Bij Divtag hechten wij veel waarde aan het waarborgen van de veiligheid op het gebied van klantdata. Deze data is meestal voor onze klanten van levensbelang en bevat ook vaak privacy gevoelige informatie. Daarnaast is natuurlijk de privacywetgeving (AVG) van toepassing op persoonsgegevens. 
