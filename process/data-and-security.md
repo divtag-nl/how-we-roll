@@ -23,5 +23,5 @@ Voorbeelden van datalekken zijn bijvoorbeeld een e-mail die naar de verkeerde ad
 ## Veiligheid webapplicaties
 Bij Divtag bouwen we veilige webapplicaties. Dit wil zeggen dat je als ontwikkelaar gedwongen wordt om na te denken over veiligheidsrisico's bij de ontwikkeling (privacy by design). We hebben ons proces zo ingericht dat iedere code wijziging wordt gecontroleerd door een collega, en middels [Scrutinizer CI](https://scrutinizer-ci.com/) wordt beoordeeld. Zo zorgen we er gezamenlijk voor dat we betere en veiligere software ontwikkelen. Daarnaast ben je natuurlijk bekend met de [OWASP top 10](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project).
 
-## Deployement van nieuwe releases
+## Deployment van nieuwe releases
 Als we een nieuwe versie hebben ontwikkeld van een van onze projecten dan zorgen we er voor dat we deze in de regel niet op vrijdag deployen naar de productieomgeving. Ook aan het einde van de dag of net voor een druk moment proberen we dit natuurlijk te voorkomen. Afhankelijk van het project kan het zijn dat de rechten op de masterbranche alleen beschikbaar zijn voor de senior ontwikkelaars.
