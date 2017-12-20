@@ -23,7 +23,7 @@ php artisan delete-old-records
 php artisan deleteOldRecords
 ```
 
-Een command zou altijd feedback moeten geven om te laten zien dat het succesvol uitgevord is.
+Een command zou altijd feedback moeten geven om te laten zien dat het succesvol uitgevoerd is.
 
 ```php
 class Foo extends Command
@@ -55,7 +55,7 @@ class Kernel extends ConsoleKernel
 
 ### Ternary operators
 
-Ieder gedeelte van een ternary if statement zou op een eigen regel moeten staat, behalve als het een heel kort statement is.
+Ieder gedeelte van een ternary if statement zou op een eigen regel moeten staat, behalve als het een heel korte statement is.
 
 ```php
 // Good
