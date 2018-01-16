@@ -6,6 +6,7 @@ Deze site beschrijft hoe bij ons, Divtag, verschillende processen geregeld zijn 
   - [Scrum](/process/scrum)
   - [Data en veiligheid](/process/data-and-security)
   - [Definities](/process/definitions)
+  - [Testen](/process/testing)
   - [Gebruikte technieken](/process/tools)
 - Code
   - [Laravel en PHP](/code-style/laravel-php)
