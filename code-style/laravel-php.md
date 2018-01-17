@@ -5,6 +5,7 @@
 Alle richtlijnen die hier beschreven staan zijn precies dat, richtlijnen. Het is de bedoeling dat iedereen zich zo goed mogelijk aan deze richtlijnen houd, maar er kan van worden afgeweken indien hier een goed reden voor is.
 
 - [Artisan commands](#artisan-commands)
+- [Form request validation](#form-request-validation)
 - [Ternary operators](#ternary-operators)
 
 ## PHP
@@ -50,6 +51,65 @@ class Kernel extends ConsoleKernel
         // Bad
         $schedule->command('foo --force')->daily();
     }
+}
+```
+
+### Form request validation
+
+Gebruiker wanneer er meerdere validatie regels op een veld zijn altijd een array, hierdoor blijft de validatie een stuk beter leesbaar en kan er zonder problemen van meerdere regels code gebruikt worden gemaakt wanneer er veel validatie regels nodig zijn.
+
+```php
+public function rules()
+{
+    // Good
+    return [
+        'title' => ['required', 'min:10', 'max:255'],
+    ];
+    
+    // Bad
+    return [
+        'title' => 'required|minx:10|max:255',
+    ];
+}
+```
+
+Zet binnen een request consistent de regels in strings of arrays. Anders worden de regels snel onoverzichtelijk.
+
+```php
+public function rules()
+{
+    // Good
+    return [
+        'title'       => ['required'],
+        'description' => ['required', 'max:255'],
+    ];
+    
+    // Bad
+    return [
+        'title'       => 'required',
+        'description' => ['required', 'max:255'],
+    ];
+}
+```
+
+Gebruik de methodes van de `Rule` class wanneer deze beschikbaar zijn. Hierdoor kunnen de regels makkelijker leesbaar geformat worden en is er syntax highlighting beschikbaar. Dit maakt de regels een stuk beter leesbaar, zeker wanner er complexe regels nodig zijn zoals bij `unique` of `exists` regels vaak het geval is.
+
+```php
+public function rules()
+{
+    // Good
+    return [
+        'email' => [
+            Rule::unique('users', 'email_address'),
+        ],
+    ];
+    
+    // Bad
+    return [
+        'email' => [
+            'unique:users,email_address',
+        ],
+    ];
 }
 ```
 
