@@ -56,7 +56,7 @@ class Kernel extends ConsoleKernel
 
 ### Form request validation
 
-Gebruiker wanneer er meerdere validatie regels op een veld zijn altijd een array, hierdoor blijft de validatie een stuk beter leesbaar en kan er zonder problemen van meerdere regels code gebruikt worden gemaakt wanneer er veel validatie regels nodig zijn.
+Gebruik wanneer er meerdere validatie regels op een veld zijn altijd een array, hierdoor blijft de validatie een stuk beter leesbaar en kan er zonder problemen van meerdere regels code gebruikt worden gemaakt wanneer er veel validatie regels nodig zijn.
 
 ```php
 public function rules()
