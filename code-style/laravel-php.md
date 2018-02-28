@@ -130,3 +130,41 @@ $result = $foo instanceof Model ?
     $foo->name : 
    'A default value';
 ```
+
+### File and Folder names and structure
+
+- Controllers worden geschreven in enkelvoud en CamelCase
+- View folders worden geschreven in enkelvoud en snake_case
+- View files worden geschreven in enkelvoud en snake_case
+
+In de view folder maken we gebruik van een partials folder.
+Structuur ziet er dan uit alsvolgt:
+```php
+- resources/views/license_type/partials/form.blade.php
+```
+### Variables
+
+- Alle variabelen worden geschreven in CamelCase.
+
+
+```php
+    $normalVariable = 'data';
+```
+
+Uitzondering:
+
+Data sturen naar de view gaat middels een array.
+Array keys worden geschreven in snake_case.
+Deze variablen worden in de view aangeroepen met snake_case.
+
+```php
+    // Controller:
+    return view('license_type.index', [
+        'license_types' => $licenseTypes
+    ]);
+    
+    // View:
+    @foreach($license_types as $licenseType)
+        // loop
+    @endforeach
+```
