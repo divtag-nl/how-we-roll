@@ -8,6 +8,7 @@ Alle richtlijnen die hier beschreven staan zijn precies dat, richtlijnen. Het is
 - [Development packages](#development-packages)
 - [File and Folder names and structure](#file-and-folder-names-and-structure)
 - [Form request validation](#form-request-validation)
+- [Resource structure](#resource-structure)
 - [Ternary operators](#ternary-operators)
 - [Variables](#variables)
 
@@ -146,6 +147,30 @@ public function rules()
         ],
     ];
 }
+```
+
+### Resource structure
+
+De folder structuur in de resource map van de blade views:
+
+```php
+resources/
+        views/
+            layouts/
+                    app.blade.php  
+                    auth.blade.php
+        
+                    partials/
+                            left_nav.blade.php
+                            top_nav.blade.php
+        
+            user/
+                    index.blade.php
+                    create.blade.php
+                    edit.blade.php
+                    
+                    partials/
+                            form.blade.php
 ```
 
 ### Ternary operators
