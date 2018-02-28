@@ -7,6 +7,8 @@ Alle richtlijnen die hier beschreven staan zijn precies dat, richtlijnen. Het is
 - [Artisan commands](#artisan-commands)
 - [Form request validation](#form-request-validation)
 - [Ternary operators](#ternary-operators)
+- [File and Folder names and structure](#file-and-folder-names-and-structure)
+- [Variables](#variables)
 
 ## PHP
 
