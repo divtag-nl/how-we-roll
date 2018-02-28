@@ -5,8 +5,10 @@
 Alle richtlijnen die hier beschreven staan zijn precies dat, richtlijnen. Het is de bedoeling dat iedereen zich zo goed mogelijk aan deze richtlijnen houd, maar er kan van worden afgeweken indien hier een goed reden voor is.
 
 - [Artisan commands](#artisan-commands)
+- [File and Folder names and structure](#file-and-folder-names-and-structure)
 - [Form request validation](#form-request-validation)
 - [Ternary operators](#ternary-operators)
+- [Variables](#variables)
 
 ## PHP
 
@@ -52,6 +54,18 @@ class Kernel extends ConsoleKernel
         $schedule->command('foo --force')->daily();
     }
 }
+```
+
+### File and Folder names and structure
+
+- Controllers worden geschreven in enkelvoud en CamelCase
+- View folders worden geschreven in enkelvoud en snake_case
+- View files worden geschreven in enkelvoud en snake_case
+
+In de view folder maken we gebruik van een partials folder.
+
+```php
+- resources/views/license_type/partials/form.blade.php
 ```
 
 ### Form request validation
@@ -129,4 +143,30 @@ $result = $foo ? 'foo' : 'bar';
 $result = $foo instanceof Model ?
     $foo->name : 
    'A default value';
+```
+
+### Variables
+
+Alle variabelen worden geschreven in CamelCase.
+
+```php
+    $normalVariable = 'data';
+```
+
+Uitzondering:
+
+Data sturen naar de view gaat middels een array.
+Array keys worden geschreven in snake_case.
+Deze variabelen worden in de view aangeroepen met snake_case.
+
+```php
+    // Controller:
+    return view('license_type.index', [
+        'license_types' => $licenseTypes,
+    ]);
+    
+    // View:
+    @foreach ($license_types as $licenseType)
+        // loop
+    @endforeach
 ```
