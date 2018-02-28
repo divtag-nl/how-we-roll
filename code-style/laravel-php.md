@@ -6,7 +6,7 @@ Alle richtlijnen die hier beschreven staan zijn precies dat, richtlijnen. Het is
 
 - [Artisan commands](#artisan-commands)
 - [Development packages](#development-packages)
-- [File and Folder names and structure](#file-and-folder-names-and-structure)
+- [File and Folder name conventions](#file-and-folder-name-conventions)
 - [Form request validation](#form-request-validation)
 - [Resource structure](#resource-structure)
 - [Ternary operators](#ternary-operators)
@@ -78,17 +78,11 @@ Package die gebruikt wordt voor formulieren, ***zonder*** de ```--dev``` flag
 
 - [Laravel collective Form](https://laravelcollective.com/docs/master/html "Laravel collective Form")
 
-### File and Folder names and structure
+### File and Folder name conventions
 
 - Controllers worden geschreven in enkelvoud en CamelCase
 - View folders worden geschreven in enkelvoud en snake_case
 - View files worden geschreven in enkelvoud en snake_case
-
-In de view folder maken we gebruik van een partials folder.
-
-```php
-- resources/views/license_type/partials/form.blade.php
-```
 
 ### Form request validation
 
