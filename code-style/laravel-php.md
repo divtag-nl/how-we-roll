@@ -5,6 +5,8 @@
 Alle richtlijnen die hier beschreven staan zijn precies dat, richtlijnen. Het is de bedoeling dat iedereen zich zo goed mogelijk aan deze richtlijnen houd, maar er kan van worden afgeweken indien hier een goed reden voor is.
 
 - [Artisan commands](#artisan-commands)
+- [CRUD](#crud)
+- [Development environment](#development-environment)
 - [Development packages](#development-packages)
 - [File and Folder name conventions](#file-and-folder-name-conventions)
 - [Form request validation](#form-request-validation)
@@ -57,6 +59,119 @@ class Kernel extends ConsoleKernel
     }
 }
 ```
+
+### CRUD
+
+Hou de volgende standaard aan met het ontwikkelen van een crud:
+
+Index:
+```php
+    /**
+     * @return View
+     */
+    public function index(): View
+    {
+        return view('user.index', [
+            'users' => User::orderBy('name')->paginate(25),
+        ]);
+    }
+```
+Create:
+```php
+    /**
+     * @return View
+     */
+    public function create(): View
+    {
+        return view('user.create', [
+            'user'  => new User(),
+        ]);
+    }
+```
+
+Store:
+```php
+    /**
+     * @param UserRequest $request
+     * @return RedirectResponse
+     */
+    public function store(UserRequest $request): RedirectResponse
+    {
+        if (User::create($request->all())) {
+            return redirect()
+                ->route('user.index')
+                ->with('success', __('notifications.success'));
+        }
+
+        return redirect()
+            ->route('user.index')
+            ->with('failed', __('notifications.failed'));
+    }
+```
+
+Edit:
+```php
+    /**
+     * @param User $user
+     * @return View
+     */
+    public function edit(User $user): View
+    {
+        return view('user.edit', [
+            'user'  => $user,
+        ]);
+    }
+```
+
+Update:
+```php
+    /**
+     * @param UserRequest $request
+     * @param User        $user
+     * @return RedirectResponse
+     */
+    public function update(UserRequest $request, User $user): RedirectResponse
+    {
+        if ($user->update($request->all())) {
+            return redirect()
+                ->route('user.index')
+                ->with('success', __('notifications.success'));
+        }
+
+        return redirect()
+            ->route('user.index')
+            ->with('failed', __('notifications.failed'));
+    }
+```
+
+Destroy:
+```php
+    /**
+     * @param User $user
+     * @return RedirectResponse
+     * @throws \Exception
+     */
+    public function destroy(User $user): RedirectResponse
+    {
+        if ($user->delete()) {
+            return redirect()
+                ->route('user.index')
+                ->with('success', __('notifications.success'));
+        }
+
+        return redirect()
+            ->route('user.index')
+            ->with('failed', __('notifications.failed'));
+    }
+```
+
+
+### Development environment
+
+Bij Divtag gebruiken we de volgende lokale ontwikkel omgevingen:
+
+- [Homestead](https://laravel.com/docs/5.5/homestead "Homestead")
+- [Valet](https://laravel.com/docs/5.5/valet "Valet")
 
 ### Development packages
 
