@@ -5,6 +5,7 @@
 Alle richtlijnen die hier beschreven staan zijn precies dat, richtlijnen. Het is de bedoeling dat iedereen zich zo goed mogelijk aan deze richtlijnen houd, maar er kan van worden afgeweken indien hier een goed reden voor is.
 
 - [Artisan commands](#artisan-commands)
+- [Development packages](#development-packages)
 - [File and Folder names and structure](#file-and-folder-names-and-structure)
 - [Form request validation](#form-request-validation)
 - [Ternary operators](#ternary-operators)
