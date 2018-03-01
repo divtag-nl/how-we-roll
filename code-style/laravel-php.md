@@ -5,9 +5,12 @@
 Alle richtlijnen die hier beschreven staan zijn precies dat, richtlijnen. Het is de bedoeling dat iedereen zich zo goed mogelijk aan deze richtlijnen houd, maar er kan van worden afgeweken indien hier een goed reden voor is.
 
 - [Artisan commands](#artisan-commands)
+- [CRUD](#crud)
+- [Development environment](#development-environment)
 - [Development packages](#development-packages)
-- [File and Folder names and structure](#file-and-folder-names-and-structure)
+- [File and Folder name conventions](#file-and-folder-name-conventions)
 - [Form request validation](#form-request-validation)
+- [Resource structure](#resource-structure)
 - [Ternary operators](#ternary-operators)
 - [Variables](#variables)
 
@@ -57,6 +60,119 @@ class Kernel extends ConsoleKernel
 }
 ```
 
+### CRUD
+
+Hou de volgende standaard aan met het ontwikkelen van een crud:
+
+Index:
+```php
+    /**
+     * @return View
+     */
+    public function index(): View
+    {
+        return view('user.index', [
+            'users' => User::orderBy('name')->paginate(25),
+        ]);
+    }
+```
+Create:
+```php
+    /**
+     * @return View
+     */
+    public function create(): View
+    {
+        return view('user.create', [
+            'user'  => new User(),
+        ]);
+    }
+```
+
+Store:
+```php
+    /**
+     * @param UserRequest $request
+     * @return RedirectResponse
+     */
+    public function store(UserRequest $request): RedirectResponse
+    {
+        if (User::create($request->all())) {
+            return redirect()
+                ->route('user.index')
+                ->with('success', __('notifications.success'));
+        }
+
+        return redirect()
+            ->route('user.index')
+            ->with('failed', __('notifications.failed'));
+    }
+```
+
+Edit:
+```php
+    /**
+     * @param User $user
+     * @return View
+     */
+    public function edit(User $user): View
+    {
+        return view('user.edit', [
+            'user'  => $user,
+        ]);
+    }
+```
+
+Update:
+```php
+    /**
+     * @param UserRequest $request
+     * @param User        $user
+     * @return RedirectResponse
+     */
+    public function update(UserRequest $request, User $user): RedirectResponse
+    {
+        if ($user->update($request->all())) {
+            return redirect()
+                ->route('user.index')
+                ->with('success', __('notifications.success'));
+        }
+
+        return redirect()
+            ->route('user.index')
+            ->with('failed', __('notifications.failed'));
+    }
+```
+
+Destroy:
+```php
+    /**
+     * @param User $user
+     * @return RedirectResponse
+     * @throws \Exception
+     */
+    public function destroy(User $user): RedirectResponse
+    {
+        if ($user->delete()) {
+            return redirect()
+                ->route('user.index')
+                ->with('success', __('notifications.success'));
+        }
+
+        return redirect()
+            ->route('user.index')
+            ->with('failed', __('notifications.failed'));
+    }
+```
+
+
+### Development environment
+
+Bij Divtag gebruiken we de volgende lokale ontwikkel omgevingen:
+
+- [Homestead](https://laravel.com/docs/5.5/homestead "Homestead")
+- [Valet](https://laravel.com/docs/5.5/valet "Valet")
+
 ### Development packages
 
 Packages die standaard in de master van een project worden gezet in sprint 0.
@@ -77,17 +193,11 @@ Package die gebruikt wordt voor formulieren, ***zonder*** de ```--dev``` flag
 
 - [Laravel collective Form](https://laravelcollective.com/docs/master/html "Laravel collective Form")
 
-### File and Folder names and structure
+### File and Folder name conventions
 
 - Controllers worden geschreven in enkelvoud en CamelCase
 - View folders worden geschreven in enkelvoud en snake_case
 - View files worden geschreven in enkelvoud en snake_case
-
-In de view folder maken we gebruik van een partials folder.
-
-```php
-- resources/views/license_type/partials/form.blade.php
-```
 
 ### Form request validation
 
@@ -146,6 +256,30 @@ public function rules()
         ],
     ];
 }
+```
+
+### Resource structure
+
+De folder structuur in de resource map van de blade views:
+
+```php
+resources/
+        views/
+            layouts/
+                    app.blade.php  
+                    auth.blade.php
+        
+                    partials/
+                            left_nav.blade.php
+                            top_nav.blade.php
+        
+            user/
+                    index.blade.php
+                    create.blade.php
+                    edit.blade.php
+                    
+                    partials/
+                            form.blade.php
 ```
 
 ### Ternary operators
