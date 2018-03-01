@@ -10,6 +10,7 @@ Alle richtlijnen die hier beschreven staan zijn precies dat, richtlijnen. Het is
 - [Development packages](#development-packages)
 - [File and Folder name conventions](#file-and-folder-name-conventions)
 - [Form request validation](#form-request-validation)
+- [Migrations and seeders](#migrations-and-seeders)
 - [Resource structure](#resource-structure)
 - [Ternary operators](#ternary-operators)
 - [Variables](#variables)
@@ -256,6 +257,40 @@ public function rules()
         ],
     ];
 }
+```
+
+### Migrations and seeders
+
+Definiëren van foreign keys e.d. worden onderaan geplaatst.
+
+```php
+        Schema::create('license_codes', function (Blueprint $table) {
+            $table->increments('id');
+            $table->unsignedInteger('license_type_id');
+            $table->timestamps();
+            $table->softDeletes();
+
+            $table->foreign('license_type_id')->references('id')->on('license_types');
+        });
+```
+
+Bij seeders maken we gebruik van [Laravel factories](https://laravel.com/docs/5.5/database-testing#generating-factories "Laravel factories")
+
+```php
+    public function run()
+    {
+        factory(App\LicenseType::class, 5)->create();
+    }
+```
+
+Voorbeeld van een factory. We gebruiken een unique sentence van faker, zodat de unit tests niet falen op quotes of andere leestekens.
+
+```php
+$factory->define(App\LicenseType::class, function (Faker $faker) {
+    return [
+        'name' => $faker->unique()->sentence,
+    ];
+});
 ```
 
 ### Resource structure
