@@ -5,6 +5,7 @@
 Alle richtlijnen die hier beschreven staan zijn precies dat, richtlijnen. Het is de bedoeling dat iedereen zich zo goed mogelijk aan deze richtlijnen houd, maar er kan van worden afgeweken indien hier een goed reden voor is.
 
 - [Artisan commands](#artisan-commands)
+- [Development packages](#development-packages)
 - [File and Folder names and structure](#file-and-folder-names-and-structure)
 - [Form request validation](#form-request-validation)
 - [Ternary operators](#ternary-operators)
@@ -55,6 +56,26 @@ class Kernel extends ConsoleKernel
     }
 }
 ```
+
+### Development packages
+
+Packages die standaard in de master van een project worden gezet in sprint 0.
+
+Packages met de ``` --dev ``` flag:
+
+- [Laravel debugbar](https://github.com/barryvdh/laravel-debugbar "Laravel debugbar")
+- [Laravel ide helper](https://github.com/barryvdh/laravel-ide-helper "Laravel ide helper")
+- [Doctrine DBAL](https://github.com/doctrine/dbal "Doctrine DBAL")
+- [Squizlabs php_codesniffer ](https://github.com/squizlabs/PHP_CodeSniffer "PHP Codesniffer")
+
+Packages ***zonder*** de  ``` --dev ``` flag:
+
+- [Predis](https://github.com/nrk/predis "Predis")
+- [Sentry](https://github.com/getsentry/sentry-laravel "Sentry")
+
+Package die gebruikt wordt voor formulieren, ***zonder*** de ```--dev``` flag
+
+- [Laravel collective Form](https://laravelcollective.com/docs/master/html "Laravel collective Form")
 
 ### File and Folder names and structure
 
